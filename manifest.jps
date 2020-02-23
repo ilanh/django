@@ -2,7 +2,7 @@
 type: install
 #baseUrl: https://raw.githubusercontent.com/jelastic-jps/django-cms/master
 baseUrl: https://raw.githubusercontent.com/ilanh/django/master
-logo: /images/django-logo75.png
+logo: /images/django-logo70.png
 homepage: https://www.djangoproject.com/
 startPage: ${env.protocol}://${env.domain}/admin/
 name: Django Full Stack
