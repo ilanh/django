@@ -71,9 +71,6 @@ actions:
     - cmd [cp]: >-
         /opt/jelastic-python37/bin/django-admin
         startproject ROOT /var/www/webroot/
-        --db mysql://${globals.DB_USER}:${globals.DB_PASS}@DB/django
-        -s --no-user --bootstrap yes --permissions yes
-        --parent-dir /var/www/webroot ROOT
       user: jelastic
     - log: Finalalize settings
     - cmd [cp]: |-
