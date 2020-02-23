@@ -19,7 +19,7 @@ globals:
 
 nodes:
   - nodeType: apache-python
-    tag: 2.4.41-python-3.7.5
+    #tag: 2.4.41-python-3.7.5
     #django is not supported yet on python 3.8
     #ref: https://django.readthedocs.io/en/2.2.x/faq/install.html#faq-python-version-support
     cloudlets: 8
@@ -57,7 +57,7 @@ actions:
 
   deployDjango:
     - log: Adding jelastic-python to PATH
-    - cmd [cp]: echo 'export PATH=$PATH:/opt/jelastic-python37/bin/'  >> /etc/profile
+    - cmd [cp]: echo 'export PATH=$PATH:/opt/jelastic-python38/bin/'  >> /etc/profile
       user: root
     - log: Updating pip
     - cmd [cp]: python -m pip install --upgrade pip
@@ -72,7 +72,7 @@ actions:
       user: jelastic
     - log: Installing django to ROOT
     - cmd [cp]: >-
-        /opt/jelastic-python37/bin/django-admin
+        /opt/jelastic-python38/bin/django-admin
         startproject ROOT /var/www/webroot/
       user: jelastic
     - log: Finalalize settings
