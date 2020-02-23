@@ -80,9 +80,9 @@ actions:
         sed -i "s/^ALLOWED_HOSTS.*/ALLOWED_HOSTS = ['*']/g" /var/www/webroot/ROOT/settings.py
         sed -i "s/^Alias \/static.*/Alias \/static \/var\/www\/webroot\/static/g" /etc/httpd/conf.d/wsgi.conf
         sed -i "s/^Alias \/images.*/Alias \/media \/var\/www\/webroot\/media/g" /etc/httpd/conf.d/wsgi.conf
-        echo "mysql://${globals.DB_USER}:${globals.DB_PASS}@DB/django" > /var/www/webroot/db-connect.txt
-        #import dj_database_url
-        #DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+        sed -i "/^import os.*/a import dj_database_url" /var/www/webroot/ROOT/settings.py
+        sed -i -z "s/DATABASES.*\n.*\n\}/DATABASES = dj_database_url.config()/g" /var/www/webroot/ROOT/settings.py
+        #echo "mysql://${globals.DB_USER}:${globals.DB_PASS}@DB/django" > /var/www/webroot/db-connect.txt
         jem service restart httpd
         #/var/www/webroot/manage.py collectstatic
         #/var/www/webroot/manage.py createsuperuser --username ${globals.ADMIN_USER} --email ${user.email} --noinput
