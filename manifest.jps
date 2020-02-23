@@ -26,6 +26,8 @@ nodes:
     count: 1
     nodeGroup: cp
     links: sqldb:DB
+    env:
+      DATABASE_URL: "mysql://${globals.DB_USER}:${globals.DB_PASS}@DB/django"
 
   - nodeType: mariadb-dockerized
     count: 1
@@ -66,9 +68,9 @@ actions:
     - cmd [cp]: rm -rf /var/www/webroot/ROOT/*
       user: jelastic
     - log: Installing django
-    - cmd [cp]: python -m pip install django mysqlclient
+    - cmd [cp]: python -m pip install django mysqlclient dj-database-url
       user: jelastic
-    - log: Installing djangocms to ROOT
+    - log: Installing django to ROOT
     - cmd [cp]: >-
         /opt/jelastic-python37/bin/django-admin
         startproject ROOT /var/www/webroot/
@@ -78,7 +80,9 @@ actions:
         sed -i "s/^ALLOWED_HOSTS.*/ALLOWED_HOSTS = ['*']/g" /var/www/webroot/ROOT/settings.py
         sed -i "s/^Alias \/static.*/Alias \/static \/var\/www\/webroot\/static/g" /etc/httpd/conf.d/wsgi.conf
         sed -i "s/^Alias \/images.*/Alias \/media \/var\/www\/webroot\/media/g" /etc/httpd/conf.d/wsgi.conf
-        echo "mysql://${globals.DB_USER}:${globals.DB_PASS}@DB/django" > /var/www/webroot/set.txt
+        echo "mysql://${globals.DB_USER}:${globals.DB_PASS}@DB/django" > /var/www/webroot/db-connect.txt
+        #import dj_database_url
+        #DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
         jem service restart httpd
         #/var/www/webroot/manage.py collectstatic
         #/var/www/webroot/manage.py createsuperuser --username ${globals.ADMIN_USER} --email ${user.email} --noinput
