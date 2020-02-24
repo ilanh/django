@@ -67,8 +67,8 @@ actions:
     - log: Removing ROOT content
     - cmd [cp]: rm -rf /var/www/webroot/ROOT/*
       user: jelastic
-    - log: Installing django
-    - cmd [cp]: python -m pip install django mysqlclient dj-database-url
+    - log: Installing django and requirements
+    - cmd [cp]: python -m pip install django mysqlclient dj-database-url requests-oauthlib requests pysocks
       user: jelastic
     - log: Installing django to ROOT
     - cmd [cp]: >-
@@ -81,7 +81,7 @@ actions:
         sed -i "s/^Alias \/static.*/Alias \/static \/var\/www\/webroot\/static/g" /etc/httpd/conf.d/wsgi.conf
         sed -i "s/^Alias \/images.*/Alias \/media \/var\/www\/webroot\/media/g" /etc/httpd/conf.d/wsgi.conf
         sed -i "/^import os.*/a import dj_database_url" /var/www/webroot/ROOT/settings.py
-        sed -i -z "s/DATABASES.*\n.*\n\}/DATABASES['default'] = dj_database_url.config()/g" /var/www/webroot/ROOT/settings.py
+        sed -i -z "s/DATABASES.*\n.*\n\}/DATABASES = \{'default': dj_database_url.config()\}/g" /var/www/webroot/ROOT/settings.py
         #echo "mysql://${globals.DB_USER}:${globals.DB_PASS}@DB/django" > /var/www/webroot/db-connect.txt
         jem service restart httpd
         #/var/www/webroot/manage.py collectstatic
