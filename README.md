@@ -1,15 +1,15 @@
 <p align="left"> 
-<img style="padding: 0 15px; float: left;" src="images/django-logo.png" width="200">
+<img style="padding: 0 15px; float: left;" src="images/django-logo-wide.png" width="200">
 </p>
 
-## Django CMS One-Click Deploy
+## Django Full Stack Environment
 
-**Django CMS** is an open-source content management system with user-friendly interface and rich feature set built for needs of multilingual publishing. Django CMS is aimed at helping developers to take applications from concept to completion as quickly as possible, avoiding common security issues, and flexibly scaling your busy websites.
+**Django** is a Python open-source framework.
 
 ### Environment Topology
 
-The JPS package creates a Python-based environment, which contains a MySQL Server, Apache application server and deploys the Django CMS software from the web.   
-The version to be installed on a choice in the install between <strong>Stable</strong> and <strong>LTS</strong>, currently equal on both releases.
+The JPS package creates a Python-based environment, which contains a MySQL Server, Apache application server and deploys the Django from the web.   
+
 <table border="0"><tr><td>
   <img src="images/djangocms-environment-topology.png">
   </td><td>
