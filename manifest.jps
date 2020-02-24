@@ -67,7 +67,7 @@ actions:
     - cmd [cp]: rm -rf /var/www/webroot/ROOT/*
       user: jelastic
     - log: Installing django and requirements
-    - cmd [cp]: python -m pip install django mysqlclient dj-database-url requests-oauthlib requests pysocks
+    - cmd [cp]: python -m pip install django mysqlclient dj-database-url requests-oauthlib requests pysocks django-grappelli
       user: jelastic
     - log: Installing django to ROOT
     - cmd [cp]: >-
