@@ -82,12 +82,12 @@ actions:
         sed -i "s/^Alias \/images.*/Alias \/media \/var\/www\/webroot\/media/g" /etc/httpd/conf.d/wsgi.conf
         sed -i "/^import os.*/a import dj_database_url" /var/www/webroot/ROOT/settings.py
         sed -i -z "s/DATABASES.*\n.*\n\}/DATABASES = \{'default': dj_database_url.config()\}/g" /var/www/webroot/ROOT/settings.py
-        #echo "mysql://${globals.DB_USER}:${globals.DB_PASS}@DB/django" > /var/www/webroot/db-connect.txt
         jem service restart httpd
-        #/var/www/webroot/manage.py collectstatic
-        #/var/www/webroot/manage.py createsuperuser --username ${globals.ADMIN_USER} --email ${user.email} --noinput
-        #/var/www/webroot/manage.py shell -c "from django.contrib.auth.models import User;user = User.objects.get(username='${globals.ADMIN_USER}');user.set_password('${globals.ADMIN_PASS}');user.save()"
-        chmod 0775 /var/www/webroot/ROOT
+        /var/www/webroot/manage.py migrate
+        /var/www/webroot/manage.py collectstatic
+        /var/www/webroot/manage.py createsuperuser --username ${globals.ADMIN_USER} --email ${user.email} --noinput
+        /var/www/webroot/manage.py shell -c "from django.contrib.auth.models import User;user = User.objects.get(username='${globals.ADMIN_USER}');user.set_password('${globals.ADMIN_PASS}');user.save()"
+        #chmod 0775 /var/www/webroot/ROOT
       user: jelastic
 
 success: |+
