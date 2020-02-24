@@ -90,7 +90,7 @@ actions:
     - log: Finalalize settings
     - cmd [cp]: |-
         /var/www/webroot/manage.py migrate
-        /var/www/webroot/manage.py collectstatic
+        /var/www/webroot/manage.py collectstatic -v0 --noinput
         /var/www/webroot/manage.py createsuperuser --username ${globals.ADMIN_USER} --email ${user.email} --noinput
         /var/www/webroot/manage.py shell -c "from django.contrib.auth.models import User;user = User.objects.get(username='${globals.ADMIN_USER}');user.set_password('${globals.ADMIN_PASS}');user.save()"
       user: jelastic
