@@ -13,24 +13,21 @@ The JPS package creates a Python-based environment, which contains a MySQL Serve
 <table border="0"><tr><td>
   <img src="images/djangocms-environment-topology.png">
   </td><td>
-<strong>Stable</strong></br>    
-<strong>Django Version: 2.2.9</strong></br>    
-<strong>Django CMS Version: 3.7.1</strong></br>    
-<strong>Python Engine: Python 3.7.5</strong></br>     
-  </td><td>
-<strong>LTS</strong></br>    
-<strong>Django Version: 2.2.9</strong></br>    
-<strong>Django CMS Version: 3.7.1</strong></br>    
-<strong>Python Engine: Python 3.7.5</strong></br>     
+<strong>Django Version: 3.0.3</strong></br>    
+<strong>MariaDB Version: 10.14.2</strong></br>    
+<strong>Python Engine: Python 3.8.1</strong></br>     
   </td></tr></table>
 
 ### Deployment to the Cloud
 
 In order to get this solution instantly deployed, click the **Get It Hosted Now** button below, specify the required information within the opened page, choose one of the [Jelastic Public Cloud providers](https://jelastic.cloud) and click **Install**.
 
-[![GET IT HOSTED](https://raw.githubusercontent.com/jelastic-jps/jpswiki/master/images/getithosted.png)](https://jelastic.com/install-application/?manifest=https://raw.githubusercontent.com/jelastic-jps/django-cms/master/manifest.jps)
+[![GET IT HOSTED](https://raw.githubusercontent.com/jelastic-jps/jpswiki/master/images/getithosted.png)](https://jelastic.com/install-application/?manifest=https://raw.githubusercontent.com/jelastic-jps/django/master/manifest.jps)
+TODO: Verify Jelastic Repo Address
 
-**Note**: If you are already registered at Jelastic, you can deploy this cluster by importing the [package manifest raw link](https://raw.githubusercontent.com/jelastic-jps/django-cms/master/manifest.jps) within the dashboard.
+
+**Note**: If you are already registered at Jelastic, you can deploy this cluster by importing the [package manifest raw link](https://raw.githubusercontent.com/jelastic-jps/django/master/manifest.jps) within the dashboard.
+TODO: Verify Jelastic Repo Address
 
 In the opened confirmation window at Jelastic dashboard, just specify the environment name and the region if several are available, click **Install** and wait for the process to be automatically completed.
 
