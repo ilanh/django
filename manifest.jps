@@ -75,7 +75,7 @@ actions:
         /opt/jelastic-python38/bin/django-admin
         startproject ROOT /var/www/webroot/
       user: jelastic
-    - log: Finalalize settings
+    - log: Configuring Django
     - cmd [cp]: |-
         sed -i "s/^ALLOWED_HOSTS.*/ALLOWED_HOSTS = ['*']/g" /var/www/webroot/ROOT/settings.py
         sed -i "s/^Alias \/static.*/Alias \/static \/var\/www\/webroot\/static/g" /etc/httpd/conf.d/wsgi.conf
@@ -83,11 +83,13 @@ actions:
         sed -i "/^import os.*/a import dj_database_url" /var/www/webroot/ROOT/settings.py
         sed -i -z "s/DATABASES.*\n.*\n\}/DATABASES = \{'default': dj_database_url.config()\}/g" /var/www/webroot/ROOT/settings.py
         jem service restart httpd
+      user: jelastic
+    - log: Finalalize settings
+    - cmd [cp]: |-
         /var/www/webroot/manage.py migrate
         /var/www/webroot/manage.py collectstatic
         /var/www/webroot/manage.py createsuperuser --username ${globals.ADMIN_USER} --email ${user.email} --noinput
         /var/www/webroot/manage.py shell -c "from django.contrib.auth.models import User;user = User.objects.get(username='${globals.ADMIN_USER}');user.set_password('${globals.ADMIN_PASS}');user.save()"
-        #chmod 0775 /var/www/webroot/ROOT
       user: jelastic
 
 success: |+
