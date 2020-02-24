@@ -22,12 +22,12 @@ The JPS package creates a Python-based environment, which contains a MySQL Serve
 
 In order to get this solution instantly deployed, click the **Get It Hosted Now** button below, specify the required information within the opened page, choose one of the [Jelastic Public Cloud providers](https://jelastic.cloud) and click **Install**.
 
-[![GET IT HOSTED](https://raw.githubusercontent.com/jelastic-jps/jpswiki/master/images/getithosted.png)](https://jelastic.com/install-application/?manifest=https://raw.githubusercontent.com/jelastic-jps/django/master/manifest.jps)
-TODO: Verify Jelastic Repo Address
+[![GET IT HOSTED](https://raw.githubusercontent.com/jelastic-jps/jpswiki/master/images/getithosted.png)](https://jelastic.com/install-application/?manifest=https://raw.githubusercontent.com/jelastic-jps/django/master/manifest.jps)  
+TODO: Verify Jelastic Repo Address  
 
 
-**Note**: If you are already registered at Jelastic, you can deploy this cluster by importing the [package manifest raw link](https://raw.githubusercontent.com/jelastic-jps/django/master/manifest.jps) within the dashboard.
-TODO: Verify Jelastic Repo Address
+**Note**: If you are already registered at Jelastic, you can deploy this cluster by importing the [package manifest raw link](https://raw.githubusercontent.com/jelastic-jps/django/master/manifest.jps) within the dashboard.  
+TODO: Verify Jelastic Repo Address  
 
 In the opened confirmation window at Jelastic dashboard, just specify the environment name and the region if several are available, click **Install** and wait for the process to be automatically completed.
 
