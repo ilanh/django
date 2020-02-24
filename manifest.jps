@@ -19,7 +19,7 @@ globals:
 
 nodes:
   - nodeType: apache-python
-    tag: 2.4.41-python-3.7.6
+    #tag: 2.4.41-python-3.7.6
     #django is not supported yet on python 3.8
     #ref: https://django.readthedocs.io/en/2.2.x/faq/install.html#faq-python-version-support
     cloudlets: 8
